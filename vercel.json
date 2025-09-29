@@ -1,8 +1,14 @@
 {
-  "builds": [
-    { "src": "dist/spa/**", "use": "@vercel/static" }
-  ],
+  "version": 2,
+  "outputDirectory": "dist/spa",
   "routes": [
-    { "src": "/(.*)", "dest": "/index.html" }
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
   ]
 }
