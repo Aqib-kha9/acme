@@ -1,75 +1,404 @@
+import React from "react";
 import SEOHead from "@/components/site/SEOHead";
-import { CheckCircle2, Shield, FileCheck2, Users } from "lucide-react";
+import {
+  RocketIcon,
+  BuildingIcon,
+  MedalIcon,
+  HeartIcon,
+  LaptopIcon,
+  Shield,
+  Users,
+  FileCheck2,
+  CheckCircle2,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export default function About() {
+const timelineData = [
+  {
+    year: "2016",
+    title: "Founded ACME Protection",
+    description:
+      "Started with a vision to provide reliable and modern security solutions for businesses and communities.",
+    icon: <RocketIcon className="h-5 w-5 text-primary" />,
+  },
+  {
+    year: "2018",
+    title: "Corporate Expansion",
+    description:
+      "Secured large-scale contracts with corporates and residential complexes across the city.",
+    icon: <BuildingIcon className="h-5 w-5 text-primary" />,
+  },
+  {
+    year: "2020",
+    title: "Recognized for Excellence",
+    description:
+      "Achieved national compliance certifications and industry recognition for best practices.",
+    icon: <MedalIcon className="h-5 w-5 text-primary" />,
+  },
+  {
+    year: "2022",
+    title: "Employee Well-being",
+    description:
+      "Introduced specialized training and wellness programs for our workforce.",
+    icon: <HeartIcon className="h-5 w-5 text-primary" />,
+  },
+  {
+    year: "2024",
+    title: "Digital Transformation",
+    description:
+      "Launched advanced digital monitoring and client portals for seamless reporting.",
+    icon: <LaptopIcon className="h-5 w-5 text-primary" />,
+  },
+];
+
+export default function AboutPage() {
   return (
     <div>
       <SEOHead
         title="About ACME Protection"
-        description="Learn about ACME Protection Services Pvt. Ltd.—our mission, milestones, and training programs."
+        description="Learn about ACME Protection Services Pvt. Ltd.—our mission, values, and journey."
       />
-      <section className="bg-gradient-to-b from-white to-slate-50 border-b">
-        <div className="container py-12">
-          <h1 className="text-3xl md:text-4xl font-extrabold">About ACME Protection</h1>
-          <p className="mt-2 text-muted-foreground max-w-2xl">We deliver reliable, compliant security services across offices, events, and residential communities with trained personnel and 24/7 support.</p>
+
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-primary/10 via-white to-slate-50 border-b">
+        <div className="container py-20 text-center">
+          <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900">
+            About <span className="text-primary">ACME Protection</span>
+          </h1>
+          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-lg">
+            Safeguarding businesses, communities, and people with trusted
+            security solutions since 2016.
+          </p>
+          <div className="w-20 h-1 bg-primary mx-auto mt-6 rounded-full"></div>
         </div>
       </section>
 
-      <section className="container py-12 grid md:grid-cols-2 gap-8 items-center">
-        <div className="rounded-2xl border p-6 shadow-md">
-          <h2 className="text-xl font-semibold">Company Overview</h2>
-          <p className="mt-2 text-sm text-muted-foreground">Founded with a vision to make workplaces safer, ACME has grown into a trusted partner for enterprises and communities. Our guards are vetted, trained, and equipped to respond quickly.</p>
-          <ul className="mt-4 grid gap-2 text-sm">
-            <li className="flex items-center gap-2"><CheckCircle2 className="text-primary h-4 w-4"/> ISO/Compliance ready</li>
-            <li className="flex items-center gap-2"><CheckCircle2 className="text-primary h-4 w-4"/> 24/7 operations</li>
-            <li className="flex items-center gap-2"><CheckCircle2 className="text-primary h-4 w-4"/> Nationwide presence</li>
-          </ul>
-        </div>
-        <img className="rounded-2xl object-cover w-full h-64 md:h-80" src="https://images.pexels.com/photos/4870835/pexels-photo-4870835.jpeg?auto=compress&cs=tinysrgb&w=1200" loading="lazy" alt="ACME team training" />
+      
+
+      {/* Mission / Vision / Services */}
+      <section className="container py-20 grid md:grid-cols-3 gap-10 text-center">
+        <OverviewCard
+          icon={<Shield className="h-6 w-6" />}
+          title="Our Mission"
+          text="To create safe and secure environments where businesses and communities thrive."
+        />
+        <OverviewCard
+          icon={<RocketIcon className="h-6 w-6" />}
+          title="Our Vision"
+          text="To be India’s most trusted security partner with innovation and compliance."
+        />
+        <OverviewCard
+          icon={<BuildingIcon className="h-6 w-6" />}
+          title="What We Do"
+          text="From corporate offices to residential complexes, we deliver 24/7 security and monitoring."
+        />
       </section>
 
-      <section className="bg-slate-50/60">
-        <div className="container py-12">
-          <h2 className="text-2xl font-semibold mb-6">Company Timeline</h2>
-          <div className="grid md:grid-cols-4 gap-4">
-            {[
-              { date: "2016", text: "Company founded with a small core team." },
-              { date: "2018", text: "Expanded to corporate security and patrols." },
-              { date: "2021", text: "Achieved key compliance certifications." },
-              { date: "2024", text: "Launched client portal and analytics." },
-            ].map((m) => (
-              <div key={m.date} className="rounded-2xl border bg-white p-5 shadow-sm">
-                <div className="text-primary font-semibold">{m.date}</div>
-                <p className="mt-2 text-sm text-muted-foreground">{m.text}</p>
+       {/* Leadership Section */}
+      <section className="py-24 ">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+              Meet Our Leadership
+            </h2>
+            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+              ACME has been established to serve the ever-increasing commercial,
+              industrial, and housing security requirements. Our leadership ensures
+              high quality, prompt investigative action, and a client-first approach.
+            </p>
+            <div className="w-20 h-1 bg-primary mx-auto mt-6 rounded-full"></div>
+          </div>
+
+          {/* Founder Spotlight */}
+          <div className="flex flex-col md:flex-row items-center gap-10 bg-white rounded-2xl shadow-lg p-8 md:p-12 mb-20">
+            <div className="flex-shrink-0">
+              <img
+                src="/founder.png"
+                alt="Mr. V.P Lohiya"
+                className="w-48 h-48 object-cover rounded-2xl shadow-md border"
+              />
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900">
+                Mr. V.P Lohiya
+              </h3>
+              <p className="text-primary font-medium">Founder & Chairman</p>
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                ACME was founded with a mission to provide complete, timely, and
+                objective security services. We treat clients as business associates
+                and work tirelessly for their well-being.
+              </p>
+              <p className="mt-3 text-gray-600 leading-relaxed">
+                By employing a unique mix of investigative skills, business research,
+                and management techniques, we ensure uncompromised protection.
+                All security personnel are trained at ACME Training School to
+                guarantee the right person for every job.
+              </p>
+            </div>
+          </div>
+
+          {/* Other Leaders */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <LeaderCard
+              img="/john.jpg"
+              name="John Doe"
+              role="Chief Operating Officer"
+            />
+            <LeaderCard
+              img="/jane.jpeg"
+              name="Jane Smith"
+              role="Head of Operations"
+            />
+            <LeaderCard
+              img="/ravi.jpg"
+              name="Ravi Kumar"
+              role="Training Director"
+            />
+          </div>
+        </div>
+      </section>
+
+
+
+      {/* Story Section
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-12">
+          {/* Text 
+          <div className="flex-1">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+              Our Story: Protecting What Matters
+            </h2>
+            <div className="text-gray-600 leading-relaxed text-base space-y-4">
+              <p>
+                ACME Protection has always approached private and corporate
+                security with an innovative perspective. Our commitment to
+                delivering genuine, cost-effective, and reliable solutions has
+                redefined the traditional idea of security services.
+              </p>
+              <p>
+                From patrolling and on-ground guards to modern monitoring
+                systems, we are adapting to the 21st century’s security culture.
+                Welcome to the future of protection.
+              </p>
+            </div>
+          </div>
+          {/* Video 
+          <div className="flex-1">
+            <div className="rounded-xl overflow-hidden shadow-lg">
+              <video
+                src="/about.mp4"
+                width={640}
+                height={400}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-auto object-cover rounded-xl"
+                poster="/about-thumbnail.png"
+              />
+            </div>
+          </div>
+        </div>
+      </section> */}
+
+     
+
+      {/* Journey Timeline */}
+      <section className="py-24 px-4 sm:px-6 lg:px-20 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-16">
+            Our Journey
+          </h2>
+
+          {/* Desktop */}
+          <div className="hidden md:grid relative grid-cols-9 gap-4">
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-primary z-0" />
+            {timelineData.map((item, index) => (
+              <div key={index} className="contents">
+                <div
+                  className={`col-span-4 ${index % 2 === 0 ? "flex justify-end" : ""}`}
+                >
+                  {index % 2 === 0 && <TimelineCard item={item} align="right" />}
+                </div>
+                <div className="col-span-1 flex items-center justify-center z-10 relative">
+                  <div className="w-10 h-10 rounded-full bg-white border-2 border-primary shadow flex items-center justify-center">
+                    {item.icon}
+                  </div>
+                </div>
+                <div
+                  className={`col-span-4 ${index % 2 !== 0 ? "flex justify-start" : ""}`}
+                >
+                  {index % 2 !== 0 && <TimelineCard item={item} align="left" />}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile */}
+          <div className="md:hidden space-y-10">
+            {timelineData.map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center text-center bg-white p-6 rounded-xl shadow-sm"
+              >
+                <div className="w-10 h-10 mb-4 rounded-full bg-white border-2 border-primary shadow flex items-center justify-center">
+                  {item.icon}
+                </div>
+                <p className="text-primary text-sm font-semibold">{item.year}</p>
+                <h3 className="text-lg font-bold text-gray-900 mt-1 mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="container py-12">
-        <h2 className="text-2xl font-semibold mb-6">Values & Compliance</h2>
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-          <ValueCard icon={<Shield className="h-5 w-5"/>} title="Integrity" text="We do the right thing—always." />
-          <ValueCard icon={<Users className="h-5 w-5"/>} title="Trust" text="Trusted by clients across industries." />
-          <ValueCard icon={<FileCheck2 className="h-5 w-5"/>} title="Transparency" text="Clear SLAs and reporting." />
-          <ValueCard icon={<CheckCircle2 className="h-5 w-5"/>} title="Safety" text="Safety-first protocols and training." />
+      {/* Core Values */}
+      <section className="container py-24">
+        <h2 className="text-3xl font-bold text-center mb-12">Our Core Values</h2>
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+          <ValueCard
+            icon={<Shield className="h-5 w-5" />}
+            title="Integrity"
+            text="We do the right thing—always."
+          />
+          <ValueCard
+            icon={<Users className="h-5 w-5" />}
+            title="Trust"
+            text="Trusted by clients across industries."
+          />
+          <ValueCard
+            icon={<FileCheck2 className="h-5 w-5" />}
+            title="Transparency"
+            text="Clear SLAs and reporting."
+          />
+          <ValueCard
+            icon={<CheckCircle2 className="h-5 w-5" />}
+            title="Safety"
+            text="Safety-first protocols and training."
+          />
         </div>
-        <div className="mt-8">
-          <Button className="rounded-full bg-primary hover:bg-primary/90">Request a Consultation</Button>
+      </section>
+
+      {/* Stats */}
+      <section className="bg-gradient-to-r from-primary/5 to-slate-50 border-y">
+        <div className="container py-20 grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <StatCard number="10+" label="Years of Experience" />
+          <StatCard number="500+" label="Corporate Clients" />
+          <StatCard number="2000+" label="Trained Professionals" />
+          <StatCard number="24/7" label="Support Availability" />
         </div>
+      </section>
+
+      {/* CTA */}
+      <section className="container text-center py-24">
+        <h2 className="text-3xl font-bold">Partner with ACME Protection</h2>
+        <p className="text-muted-foreground max-w-xl mx-auto mt-3">
+          From enterprises to residential communities, we provide peace of mind
+          through uncompromised security solutions.
+        </p>
+        <Button className="mt-8 rounded-full px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground">
+          Request a Consultation
+        </Button>
       </section>
     </div>
   );
 }
 
-function ValueCard({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
+/* Components */
+function OverviewCard({
+  icon,
+  title,
+  text,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  text: string;
+}) {
   return (
-    <div className="rounded-2xl border p-5 shadow-sm hover:shadow-md transition-transform hover:-translate-y-0.5">
-      <div className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-primary/10 text-primary">{icon}</div>
-      <h3 className="mt-3 font-semibold">{title}</h3>
+    <div className="rounded-2xl border bg-white p-6 shadow-sm hover:shadow-lg transition-transform hover:-translate-y-0.5">
+      <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary mb-3">
+        {icon}
+      </div>
+      <h3 className="font-semibold text-lg">{title}</h3>
+      <p className="text-sm text-muted-foreground mt-2">{text}</p>
+    </div>
+  );
+}
+
+function TimelineCard({
+  item,
+  align,
+}: {
+  item: { year: string; title: string; description: string };
+  align: "left" | "right";
+}) {
+  return (
+    <div
+      className={`bg-white p-6 rounded-xl shadow-sm max-w-md w-full text-${align === "right" ? "right" : "left"}`}
+    >
+      <p className="text-primary text-sm font-semibold">{item.year}</p>
+      <h3 className="text-lg font-bold text-gray-900 mt-1 mb-2">
+        {item.title}
+      </h3>
+      <p className="text-gray-600 text-sm leading-relaxed">
+        {item.description}
+      </p>
+    </div>
+  );
+}
+
+function ValueCard({
+  icon,
+  title,
+  text,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  text: string;
+}) {
+  return (
+    <div className="rounded-2xl border bg-white p-6 shadow-sm hover:shadow-lg transition-transform hover:-translate-y-0.5 text-center">
+      <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 text-primary">
+        {icon}
+      </div>
+      <h3 className="mt-4 font-semibold text-lg">{title}</h3>
       <p className="text-sm text-muted-foreground mt-1">{text}</p>
+    </div>
+  );
+}
+
+function StatCard({ number, label }: { number: string; label: string }) {
+  return (
+    <div>
+      <h3 className="text-4xl font-extrabold text-primary">{number}</h3>
+      <p className="mt-2 text-sm text-muted-foreground">{label}</p>
+    </div>
+  );
+}
+
+function LeaderCard({
+  img,
+  name,
+  role,
+}: {
+  img: string;
+  name: string;
+  role: string;
+}) {
+  return (
+    <div className="bg-white p-6 rounded-xl shadow-sm text-center hover:shadow-md transition">
+      <img
+        src={img}
+        alt={name}
+        className="w-28 h-28 mx-auto rounded-full object-cover mb-4 border shadow"
+      />
+      <h4 className="font-semibold text-gray-900">{name}</h4>
+      <p className="text-sm text-muted-foreground">{role}</p>
     </div>
   );
 }

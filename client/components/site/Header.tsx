@@ -7,8 +7,8 @@ import { useState } from "react";
 const navItems = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/services", label: "Services" },
-  { to: "/blog", label: "Blog" },
+  { to: "/services", label: "We Provide" },
+  { to: "/blog", label: "Why Choose Us" },
   { to: "/gallery", label: "Gallery" },
   { to: "/clients", label: "Clients" },
   { to: "/contact", label: "Contact" },
@@ -42,7 +42,7 @@ export default function Header() {
           <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
               <Button className="rounded-full px-5 bg-primary text-primary-foreground hover:bg-primary/90">
-                <LogIn className="h-4 w-4" /> Login
+                <LogIn className="h-4 w-4" /> Client Portal Login
               </Button>
             </DialogTrigger>
             <DialogContent className="sm:rounded-2xl">
